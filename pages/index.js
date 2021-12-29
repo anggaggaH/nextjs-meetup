@@ -44,8 +44,7 @@ function HomePage(props) {
 
 export async function getStaticProps() {
     // fetch data, read data from files, system from SERVER side
-
-    const client = await MongoClient.connect('mongodb+srv://mawanboyz:c7uJBY4hKz4JT2dK@cluster0.g0fnd.mongodb.net/myPersonalData?retryWrites=true&w=majority')
+    const client = await MongoClient.connect(`mongodb+srv://${process.env.MONGO_CLIENT}:${process.env.MONGO_PASSWORD}@cluster0.g0fnd.mongodb.net/myPersonalData?retryWrites=true&w=majority`)
     const db = client.db()
 
     const meetupsCollection = db.collection('myPersonalData')
